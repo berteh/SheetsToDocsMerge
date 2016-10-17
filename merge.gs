@@ -1,4 +1,4 @@
-/*  This is the main method that should be invoked. 
+/*  This is the main method that should be invoked.
  *  Copy and paste the ID of your template Doc in the first line of this method.
  *
  *  Make sure the first row of the data Sheet is column headers.
@@ -25,7 +25,7 @@ function doMerge() {
   var values = rows.getValues();
   var fieldNames = values[0];//First row of the sheet must be the the field names
 
-  for (var i = 1; i < numRows; i++) {//data values start from the second row of the sheet 
+  for (var i = 1; i < numRows; i++) {//data values start from the second row of the sheet
     var row = values[i];
     var body = bodyCopy.copy();
     
@@ -44,7 +44,7 @@ function doMerge() {
         mergedDoc.appendImage(child.getBlob());
       } else if (child.getType() == DocumentApp.ElementType.PARAGRAPH) {
         mergedDoc.appendParagraph(child);
-      } else if (child.getType() == DocumentApp.ElementType.LISTITEM) {
+      } else if (child.getType() == DocumentApp.ElementType.LIST_ITEM) {
         mergedDoc.appendListItem(child);
       } else if (child.getType() == DocumentApp.ElementType.TABLE) {
         mergedDoc.appendTable(child);
