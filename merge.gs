@@ -54,7 +54,10 @@ function doMerge() {
    }
     
    mergedDoc.appendPageBreak();//Appending page break. Each row will be merged into a new page.
-
+   if(i % 50 == 0) { //Merging long sheets causes an error without ocassionally closing/reopening the file.
+      mergedDoc.saveAndClose();
+      mergedDoc = DocumentApp.openById(mergedFile.getId());
+    }
   }
 }
 
